@@ -21,6 +21,6 @@ sudo nginx -s reload
 
 sudo apt-get -y install supervisor
 cd /etc/supervisor/conf.d/
-sudo wget -q "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/default" -O
+sudo wget -q "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/dotnettest.conf" -O dotnettest.conf
 sudo service supervisor stop
 sudo service supervisor start
