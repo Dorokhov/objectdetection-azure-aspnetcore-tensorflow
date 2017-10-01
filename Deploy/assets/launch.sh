@@ -1,5 +1,5 @@
 cd /home/testadmin/
-sudo git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow" objectdetection
+sudo git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow"
 cd ./objectdetection/
 sudo dotnet publish
 
@@ -13,9 +13,14 @@ sudo apt-get -y install nginx
 sudo service nginx start
 
 cd /etc/nginx/sites-available/
-wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/default"
+sudo wget -q "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/default" -O default
+sudo cp -rf /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
 
 sudo nginx -t 
 sudo nginx -s reload
 
 sudo apt-get -y install supervisor
+cd /etc/supervisor/conf.d/
+sudo wget -q "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/default" -O
+sudo service supervisor stop
+sudo service supervisor start
