@@ -20,6 +20,7 @@ sudo apt-get -y install chromium-browser
 sudo apt-get -y install libgdiplus
 
 #install tensorflow
+cd ~/
 sudo pip install --upgrade pip
 sudo apt-get -y install python-pip python-dev
 sudo pip install tensorflow
