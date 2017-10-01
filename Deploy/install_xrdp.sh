@@ -21,7 +21,9 @@ sudo apt-get -y install libgdiplus
 
 #install tensorflow
 #cd ~/
-sudo pip install --upgrade pip
+sudo apt-get -y install python3-setuptools
+sudo easy_install3 pip
+sudo pip3 install --upgrade pip wheel setuptools
 sudo apt-get -y install python-pip python-dev
 sudo pip install tensorflow
 #sudo apt-get -y install python-pip python-dev python-virtualenv 
