@@ -19,6 +19,9 @@ sudo apt-get -y install chromium-browser
 #install gdi
 sudo apt-get -y install libgdiplus
 
+#install git
+sudo apt-get -y install git
+
 #install tensorflow
 #cd ~/
 sudo apt-get -y install python3-setuptools
