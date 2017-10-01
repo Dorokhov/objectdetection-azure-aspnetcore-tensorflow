@@ -21,11 +21,13 @@ sudo apt-get -y install libgdiplus
 
 #install tensorflow
 sudo pip install --upgrade pip
-sudo apt-get -y install python-pip python-dev python-virtualenv 
-virtualenv --system-site-packages ~/tensorflow
-source ~/tensorflow/bin/activate
-easy_install -U pip
-pip install --upgrade tensorflow 
+sudo apt-get -y install python-pip python-dev
+sudo pip install tensorflow
+#sudo apt-get -y install python-pip python-dev python-virtualenv 
+#virtualenv --system-site-packages ~/tensorflow
+#source ~/tensorflow/bin/activate
+#easy_install -U pip
+#pip install --upgrade tensorflow 
 
 #instal donet core
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg

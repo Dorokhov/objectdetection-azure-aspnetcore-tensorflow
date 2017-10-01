@@ -8,7 +8,7 @@ sudo cp -a ./bin/Debug/netcoreapp2.0 /home/testadmin/temp
 sudo rm /home/testadmin/objectdetection/*
 sudo cp -a /home/testadmin/temp /home/testadmin/objectdetection/
 
-wget
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/libtensorflow.so"
 
 sudo apt-get -y install nginx
 sudo service nginx start
