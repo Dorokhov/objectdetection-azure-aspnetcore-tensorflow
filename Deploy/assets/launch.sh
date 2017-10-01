@@ -1,5 +1,5 @@
 cd /home/testadmin/
-sudo git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow"
+sudo git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow" objectdetection
 cd ./objectdetection/
 sudo dotnet publish
 

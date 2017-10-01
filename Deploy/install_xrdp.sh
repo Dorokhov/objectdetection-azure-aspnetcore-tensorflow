@@ -19,17 +19,18 @@ sudo apt-get -y install chromium-browser
 #install gdi
 sudo apt-get -y install libgdiplus
 
+#install git
+sudo apt-get -y install git
+
 #install tensorflow
-sudo pip install --upgrade pip
+#cd ~/
+sudo apt-get -y install python3-setuptools
+sudo easy_install3 pip
+sudo pip3 install --upgrade pip wheel setuptools
 sudo apt-get -y install python-pip python-dev
 sudo pip install tensorflow
-#sudo apt-get -y install python-pip python-dev python-virtualenv 
-#virtualenv --system-site-packages ~/tensorflow
-#source ~/tensorflow/bin/activate
-#easy_install -U pip
-#pip install --upgrade tensorflow 
 
-#instal donet core
+#install dotnet core
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 
