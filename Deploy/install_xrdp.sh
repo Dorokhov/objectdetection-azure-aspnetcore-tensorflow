@@ -4,8 +4,8 @@ sudo apt-get update
 #sudo apt-get install ubuntu-desktop -y
 
 #text editor
-#sudo apt-get -y install cream
-#sudo apt-get -y install chromium-browser
+sudo apt-get -y install cream
+sudo apt-get -y install chromium-browser
 
 #install gdi
 sudo apt-get -y install libgdiplus
