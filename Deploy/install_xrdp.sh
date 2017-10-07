@@ -13,8 +13,8 @@ sudo sed -i '/\/etc\/X11\/Xsession/i xfce4-session' /etc/xrdp/startwm.sh
 sudo service xrdp restart
 
 #text editor
-sudo apt-get -y install cream
-sudo apt-get -y install chromium-browser
+#sudo apt-get -y install cream
+#sudo apt-get -y install chromium-browser
 
 #install gdi
 #sudo apt-get -y install libgdiplus
