@@ -193,9 +193,10 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/install_xrdp.sh"
+            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/install_xrdp.sh",
+            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/launch.sh"
           ],
-          "commandToExecute": "bash install_xrdp.sh"
+          "commandToExecute": "bash install_objdetection.sh"
         }
       }
     }
