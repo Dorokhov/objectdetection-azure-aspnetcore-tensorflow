@@ -1,2 +1,3 @@
 bash install_xrdp.sh
-sudo su testadmin -c "bash launch.sh"
+bash launch.sh
+sudo adduser testadmin sudo
