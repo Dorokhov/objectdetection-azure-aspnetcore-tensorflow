@@ -62,15 +62,16 @@ namespace ExampleObjectDetection
 			var fileTuples = new List<(string input, string output)> () { (_input, _output) };
 			string modelFile = _modelPath;
 
-            logger.LogInformation("GOING TENSORFLOW");
+            logger.LogDebug("running tensorflow");
 
             using (var graph = new TFGraph ())
             {
-                logger.LogInformation("GRAPH CREATED");
+                logger.LogDebug("tensorflow graph created");
                 var model = File.ReadAllBytes (modelFile);
 				graph.Import (new TFBuffer (model));
 
-                logger.LogInformation("MODEL READ");
+                logger.LogDebug("tensorflow model imported");
+
                 using (var session = new TFSession (graph)) {
 					foreach (var tuple in fileTuples) {
 						var tensor = ImageUtil.CreateTensorFromImageFile (tuple.input, TFDataType.UInt8);
@@ -83,23 +84,25 @@ namespace ExampleObjectDetection
 							graph ["detection_scores"] [0],
 							graph ["detection_classes"] [0],
 							graph ["num_detections"] [0]);
-                        logger.LogInformation("BEFORE RUN");
+
+                        logger.LogDebug("before session run");
                         var output = runner.Run ();
-                        logger.LogInformation("RUN FINISHED");
+                        logger.LogDebug("session run finished");
 
                         var boxes = (float [,,])output [0].GetValue (jagged: false);
 						var scores = (float [,])output [1].GetValue (jagged: false);
 						var classes = (float [,])output [2].GetValue (jagged: false);
 						var num = (float [])output [3].GetValue (jagged: false);
-                        var f = new SizeF();
-                        logger.LogInformation("BEFORE DRAWBOX");
-                        DrawBoxes (boxes, scores, classes, tuple.input, tuple.output, MIN_SCORE_FOR_OBJECT_HIGHLIGHTING);
 
-                        logger.LogInformation("AFTER DRAWBOX");
+                        logger.LogDebug("drawing boxes");
+                        DrawBoxes (boxes, scores, classes, tuple.input, tuple.output, MIN_SCORE_FOR_OBJECT_HIGHLIGHTING);
+                        logger.LogDebug("boxes are drawn");
                     }
 				}
-			}
-		}
+            }
+
+            logger.LogDebug("tensorflow object detection completed");
+        }
 
 		private static string DownloadDefaultModel (string dir)
 		{
@@ -175,7 +178,6 @@ namespace ExampleObjectDetection
 
 						int value = Convert.ToInt32 (classes [i, j]);
 						CatalogItem catalogItem = _catalog.FirstOrDefault (item => item.Id == value);
-                        SizeF f = new SizeF();
 						editor.AddBox (xmin, xmax, ymin, ymax, $"{catalogItem.DisplayName} : {(scores [i, j] * 100).ToString ("0")}%");
 					}
 				}
