@@ -3,9 +3,9 @@ git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorfl
 cd ./objectdetection/
 sudo dotnet publish
 
-sudo cp -a ./objectdetection/bin/Debug/netcoreapp2.0/publish /home/testadmin/temp
+cp -a ./objectdetection/bin/Debug/netcoreapp2.0/publish /home/testadmin/temp
 sudo rm -r /home/testadmin/objectdetection/*
-sudo cp -a /home/testadmin/temp/* /home/testadmin/objectdetection/
+cp -a /home/testadmin/temp/* /home/testadmin/objectdetection/
 
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/libtensorflow.so"
 
