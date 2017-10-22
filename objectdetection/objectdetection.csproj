@@ -10,6 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="test_images\**" />
+    <Content Remove="test_images\**" />
+    <EmbeddedResource Remove="test_images\**" />
+    <None Remove="test_images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
