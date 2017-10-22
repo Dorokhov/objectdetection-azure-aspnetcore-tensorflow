@@ -10,6 +10,9 @@ namespace objectdetection.Controllers
     [Route("api/[controller]")]
     public class ObjectDetectionController : Controller
     {
+        private const string TrainedModelFileName = "frozen_inference_graph.pb"; // "trained_model.pb";
+        private const string CatalogFileName = "mscoco_label_map.pbtxt"; //"labels.pbtxt";
+
         private ILogger<ObjectDetectionController> _logger;
         private readonly IHostingEnvironment _hostingEnvironment;
 
@@ -25,6 +28,35 @@ namespace objectdetection.Controllers
             if (id == null) throw new ArgumentNullException(nameof(id));
             var image = System.IO.File.OpenRead($"test_images/{id}_detected.jpg");
             return File(image, "image/jpeg");
+        }
+
+        [HttpPut("{id}")]
+        public void Train(string config = "ssd_mobilenet_v1_pets.config")
+        {
+            try
+            {
+                ($"export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim" + Environment.NewLine +
+                  "cd /home/testadmin/training/models/research" + Environment.NewLine +
+                 $"python3 object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/{config} --train_dir=train").Bash();
+
+                foreach (var filePath in Directory.GetFiles("/home/testadmin/training/models/research/"))
+                {
+                    var extension = Path.GetExtension(filePath);
+                    if (extension == "pb")
+                    {
+                        System.IO.File.Move(filePath, Path.Combine(_hostingEnvironment.ContentRootPath, TrainedModelFileName));
+                    }
+                    else if (extension == "pbtxt")
+                    {
+                        System.IO.File.Move(filePath, Path.Combine(_hostingEnvironment.ContentRootPath, CatalogFileName));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Training failed");
+                throw;
+            }
         }
 
         [HttpPost]
@@ -46,7 +78,10 @@ namespace objectdetection.Controllers
             // run tensorflow and detect objects on the image
             ExampleObjectDetection.Program.Main(new string[] {
                 $@"--input_image={inputImagePath}",
-                $@"--output_image={outputImagePath}" },
+                $@"--output_image={outputImagePath}" ,
+                $@"--catalog={Path.Combine(_hostingEnvironment.ContentRootPath,CatalogFileName)}" ,
+                $@"--model={Path.Combine(_hostingEnvironment.ContentRootPath,TrainedModelFileName)}" ,
+            },
                 _logger);
 
             // return processed image and url for preview 

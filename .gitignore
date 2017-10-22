@@ -4,3 +4,5 @@ bin
 obj
 test_images
 logger.txt
+frozen_inference_graph.pb
+mscoco_label_map.pbtxt
