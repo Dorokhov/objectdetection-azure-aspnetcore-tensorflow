@@ -22,6 +22,7 @@ cd models/research
 /usr/local/lib/python3.4/dist-packages/tensorflow/protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
 
 cd /home/testadmin/training/models/research
+mkdir train
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 sudo wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
@@ -30,4 +31,6 @@ tar -xvf annotations.tar.gz
 tar -xvf images.tar.gz
 python3 object_detection/create_pet_tf_record.py --label_map_path=object_detection/data/pet_label_map.pbtxt --data_dir=`pwd` --output_dir=`pwd`
 
-#python object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/ssd_mobilenet_v1_pets.config --train_dir=train
+#run tensorboard
+tensorboard --logdir=/home/testadmin/training/models/research/train
+#python3 object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/ssd_mobilenet_v1_pets.config --train_dir=train
