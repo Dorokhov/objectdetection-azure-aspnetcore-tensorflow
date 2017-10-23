@@ -35,8 +35,8 @@ namespace objectdetection.Controllers
         {
             try
             {
-                ($"export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim" + Environment.NewLine +
-                  "cd /home/testadmin/training/models/research" + Environment.NewLine +
+                ("cd /home/testadmin/training/models/research" + Environment.NewLine +
+                 $"export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim" + Environment.NewLine +
                  $"python3 object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/{config} --train_dir=train").Bash();
 
                 foreach (var filePath in Directory.GetFiles("/home/testadmin/training/models/research/"))
