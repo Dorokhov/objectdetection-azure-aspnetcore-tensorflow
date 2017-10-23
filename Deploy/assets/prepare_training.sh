@@ -32,5 +32,5 @@ tar -xvf images.tar.gz
 python3 object_detection/create_pet_tf_record.py --label_map_path=object_detection/data/pet_label_map.pbtxt --data_dir=`pwd` --output_dir=`pwd`
 
 #run tensorboard
-tensorboard --logdir=/home/testadmin/training/models/research/train
+#sudo tensorboard --logdir=/home/testadmin/training/models/research/train
 #python3 object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/ssd_mobilenet_v1_pets.config --train_dir=train
