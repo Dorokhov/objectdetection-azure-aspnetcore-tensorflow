@@ -17,7 +17,7 @@ sudo unzip protoc-3.3.0-linux-x86_64.zip
 cd /home/testadmin/
 mkdir training
 cd training
-git clone https://github.com/tensorflow/models
+git clone https://github.com/Dorokhov/models
 cd models/research
 /usr/local/lib/python3.4/dist-packages/tensorflow/protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
 
@@ -25,7 +25,7 @@ cd models/research
 cd object_detection/samples/configs
 wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/ssd_mobilenet_v1_pets.config"
 
-cd home/testadmin
+cd /home/testadmin
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/train.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/start_tensorboard.sh"
 
