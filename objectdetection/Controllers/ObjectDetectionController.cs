@@ -33,32 +33,40 @@ namespace objectdetection.Controllers
         [HttpPost]
         public (string, string) DetectObjects([FromBody]string imageAsString)
         {
-            if (imageAsString == null) throw new ArgumentNullException(nameof(imageAsString));
+            try
+            {
+                if (imageAsString == null) throw new ArgumentNullException(nameof(imageAsString));
 
-            // generate input and processed file names
-            string id = Guid.NewGuid().ToString("N");
-            string inputImage = GetSafeFilename($"{id}.jpg");
-            string outputImage = GetSafeFilename($"{id}_detected.jpg");
+                // generate input and processed file names
+                string id = Guid.NewGuid().ToString("N");
+                string inputImage = GetSafeFilename($"{id}.jpg");
+                string outputImage = GetSafeFilename($"{id}_detected.jpg");
 
-            string inputImagePath = Path.Combine(_hostingEnvironment.ContentRootPath, "test_images", inputImage);
-            string outputImagePath = Path.Combine(_hostingEnvironment.ContentRootPath, "test_images", outputImage);
+                string inputImagePath = Path.Combine(_hostingEnvironment.ContentRootPath, "test_images", inputImage);
+                string outputImagePath = Path.Combine(_hostingEnvironment.ContentRootPath, "test_images", outputImage);
 
-            // save input image on the disk
-            SaveImage(imageAsString, inputImagePath);
+                // save input image on the disk
+                SaveImage(imageAsString, inputImagePath);
 
-            // run tensorflow and detect objects on the image
-            ExampleObjectDetection.Program.Main(new string[] {
+                // run tensorflow and detect objects on the image
+                ExampleObjectDetection.Program.Main(new string[] {
                 $@"--input_image={inputImagePath}",
                 $@"--output_image={outputImagePath}" ,
                 $@"--catalog={Path.Combine(_hostingEnvironment.ContentRootPath,CatalogFileName)}" ,
                 $@"--model={Path.Combine(_hostingEnvironment.ContentRootPath,TrainedModelFileName)}" ,
             },
-                _logger);
+                    _logger);
 
-            // return processed image and url for preview 
-            string detectedImage = Convert.ToBase64String(System.IO.File.ReadAllBytes(outputImagePath));
-            var previewUrl = UriHelper.BuildAbsolute(Request.Scheme, Request.Host, path: new Microsoft.AspNetCore.Http.PathString($"/api/objectdetection/{id}"));
-            return (previewUrl, detectedImage);
+                // return processed image and url for preview 
+                string detectedImage = Convert.ToBase64String(System.IO.File.ReadAllBytes(outputImagePath));
+                var previewUrl = UriHelper.BuildAbsolute(Request.Scheme, Request.Host, path: new Microsoft.AspNetCore.Http.PathString($"/api/objectdetection/{id}"));
+                return (previewUrl, detectedImage);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Object detection failed");
+                throw;
+            }
         }
 
         private static void SaveImage(string imgStr, string imgPath)

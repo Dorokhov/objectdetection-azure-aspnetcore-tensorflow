@@ -28,6 +28,7 @@ wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow
 cd /home/testadmin
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/train.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/start_tensorboard.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/move_model.sh"
 
 cd /home/testadmin/training/models/research
 mkdir train
