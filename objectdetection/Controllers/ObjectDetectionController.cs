@@ -30,37 +30,8 @@ namespace objectdetection.Controllers
             return File(image, "image/jpeg");
         }
 
-        [HttpPut("{id}")]
-        public void Train(string config = "ssd_mobilenet_v1_pets.config")
-        {
-            try
-            {
-                ("cd /home/testadmin/training/models/research" + Environment.NewLine +
-                 $"export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim" + Environment.NewLine +
-                 $"python3 object_detection/train.py --logtostderr --pipeline_config_path=object_detection/samples/configs/{config} --train_dir=train").Bash();
-
-                foreach (var filePath in Directory.GetFiles("/home/testadmin/training/models/research/"))
-                {
-                    var extension = Path.GetExtension(filePath);
-                    if (extension == "pb")
-                    {
-                        System.IO.File.Move(filePath, Path.Combine(_hostingEnvironment.ContentRootPath, TrainedModelFileName));
-                    }
-                    else if (extension == "pbtxt")
-                    {
-                        System.IO.File.Move(filePath, Path.Combine(_hostingEnvironment.ContentRootPath, CatalogFileName));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Training failed");
-                throw;
-            }
-        }
-
         [HttpPost]
-        public (string, string) DetectImage([FromBody]string imageAsString)
+        public (string, string) DetectObjects([FromBody]string imageAsString)
         {
             if (imageAsString == null) throw new ArgumentNullException(nameof(imageAsString));
 
