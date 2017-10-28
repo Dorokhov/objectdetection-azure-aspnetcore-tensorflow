@@ -4,6 +4,7 @@
   "parameters": {
     "adminUsername": {
       "type": "string",
+      "defaultValue": "testadmin"
       "metadata": {
         "description": "User name for the Virtual Machine."
       }
@@ -22,7 +23,7 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_A1",
+      "defaultValue": "Standard_A3",
       "allowedValues": [
         "Standard_A1",
         "Standard_A2",
@@ -37,7 +38,7 @@
     },
     "ubuntuOSVersion": {
       "type": "string",
-      "defaultValue": "17.04",
+      "defaultValue": "14.04.2-LTS",
       "allowedValues": [
         "12.04.5-LTS",
         "14.04.2-LTS"
