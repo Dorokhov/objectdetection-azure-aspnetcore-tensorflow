@@ -64,7 +64,7 @@ namespace objectdetection.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Object detection failed");
+                _logger.LogError(ex, $"Object detection failed. {ex.Message}. Inner {ex.InnerException?.Message}");
                 throw;
             }
         }
