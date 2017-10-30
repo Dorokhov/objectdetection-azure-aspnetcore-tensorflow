@@ -23,7 +23,7 @@ cd models/research
 
 
 cd object_detection/samples/configs
-wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/ssd_mobilenet_v1_pets.config"
+wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/faster_rcnn_resnet101_pets.config"
 
 cd /home/testadmin
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/train.sh"

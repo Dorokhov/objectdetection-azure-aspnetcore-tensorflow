@@ -11,7 +11,7 @@ namespace objectdetection.Controllers
     public class ObjectDetectionController : Controller
     {
         private const string TrainedModelFileName = "frozen_inference_graph.pb"; // "trained_model.pb";
-        private const string CatalogFileName = "mscoco_label_map.pbtxt"; //"labels.pbtxt";
+        private const string CatalogFileName = "pet_label_map.pbtxt"; //"labels.pbtxt";
 
         private ILogger<ObjectDetectionController> _logger;
         private readonly IHostingEnvironment _hostingEnvironment;
