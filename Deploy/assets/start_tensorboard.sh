@@ -1,1 +1,1 @@
-tensorboard --logdir=/home/testadmin/training/models/research/train
+tensorboard --logdir=/home/testadmin/training/models/research

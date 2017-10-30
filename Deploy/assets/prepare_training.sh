@@ -29,9 +29,11 @@ cd /home/testadmin
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/train.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/start_tensorboard.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/move_model.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/eval.sh"
 
 cd /home/testadmin/training/models/research
 mkdir train
+mkdir eval
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 sudo wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
