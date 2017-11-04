@@ -19,7 +19,11 @@ sudo apt-get -y install python3-setuptools
 sudo easy_install3 pip
 sudo pip3 install --upgrade pip wheel setuptools
 sudo apt-get -y install python-pip python-dev
-sudo pip install tensorflow
+#CPU
+#sudo pip install tensorflow
+#GPU
+sudo pip install libcupti-dev
+sudo pip install tensorflow-gpu
 
 #install dotnet core
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg

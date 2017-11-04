@@ -23,14 +23,16 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_A3",
+      "defaultValue": "Standard_NV6",
       "allowedValues": [
         "Standard_A1",
         "Standard_A2",
         "Standard_A3",
         "Standard_D1",
         "Standard_D3",
-        "Standard_D4"
+        "Standard_D4",
+	"Standard_NV6",
+	"Standard_NV12"
       ],
       "metadata": {
         "description": "The size of the virtual machines used when provisioning"
