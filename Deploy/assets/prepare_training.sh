@@ -23,7 +23,7 @@ cd models/research
 
 
 cd object_detection/samples/configs
-wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/faster_rcnn_resnet101_pets.config"
+wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/faster_rcnn_resnet101_coco.config"
 
 cd /home/testadmin
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/train.sh"
@@ -34,6 +34,13 @@ wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/ra
 cd /home/testadmin/training/models/research
 mkdir train
 mkdir eval
+
+cd train
+wget "http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco_11_06_2017.tar.gz"
+tar -xzvf faster_rcnn_resnet101_coco_11_06_2017.tar.gz
+cp -a /home/testadmin/training/models/research/train/faster_rcnn_resnet101_coco_11_06_2017/* /home/testadmin/training/models/research/train
+
+cd /home/testadmin/training/models/research
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 
 sudo wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
