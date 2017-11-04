@@ -47,5 +47,5 @@ sudo wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/images.tar.gz
 wget http://www.robots.ox.ac.uk/~vgg/data/pets/data/annotations.tar.gz
 tar -xvf annotations.tar.gz
 tar -xvf images.tar.gz
-python3 object_detection/create_pet_tf_record.py --label_map_path=object_detection/data/pet_label_map.pbtxt --data_dir=`pwd` --output_dir=`pwd`
+python3 object_detection/create_pet_tf_record.py --label_map_path=object_detection/data/mscoco_label_map.pbtxt --data_dir=`pwd` --output_dir=`pwd`
 
