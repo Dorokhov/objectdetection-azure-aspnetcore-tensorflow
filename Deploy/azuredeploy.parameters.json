@@ -7,9 +7,6 @@
     },
     "dnsNamePrefix": {
       "value": "GEN-UNIQUE"
-    },
-    "virtualMachineName": {
-      "value": "blabla"
     }
   }
 }

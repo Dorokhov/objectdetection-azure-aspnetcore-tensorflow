@@ -3,7 +3,8 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "virtualMachineName": {
-        "type": "string"
+        "type": "string",
+        "defaultValue": "gpugpu"
     },
     "adminUsername": {
       "type": "string",
