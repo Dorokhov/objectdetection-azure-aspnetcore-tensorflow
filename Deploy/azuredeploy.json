@@ -31,6 +31,8 @@
         "Standard_D1",
         "Standard_D3",
         "Standard_D4",
+        "Standard_NC6",
+        "Standard_NC12",
         "Standard_NV6",
         "Standard_NV12"
       ],
