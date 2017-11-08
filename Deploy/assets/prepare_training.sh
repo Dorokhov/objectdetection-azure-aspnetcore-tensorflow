@@ -31,6 +31,10 @@ wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/ra
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/move_model.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/eval.sh"
 
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/install_cuda.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/install_cudnn.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/install_driver.sh"
+
 cd /home/testadmin/training/models/research
 mkdir train
 mkdir eval
