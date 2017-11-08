@@ -6,7 +6,7 @@ sudo apt-get -y install protobuf-compiler python-pil python-lxml
 sudo pip install jupyter
 sudo pip install matplotlib
 
-cd /usr/local/lib/python3.4/dist-packages/tensorflow/
+cd /usr/local/lib/python3.5/dist-packages/tensorflow/
 sudo mkdir protoc_3.3
 cd protoc_3.3
 sudo wget https://github.com/google/protobuf/releases/download/v3.3.0/protoc-3.3.0-linux-x86_64.zip
@@ -19,7 +19,7 @@ mkdir training
 cd training
 git clone https://github.com/Dorokhov/models
 cd models/research
-/usr/local/lib/python3.4/dist-packages/tensorflow/protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
+/usr/local/lib/python3.5/dist-packages/tensorflow/protoc_3.3/bin/protoc object_detection/protos/*.proto --python_out=.
 
 
 cd object_detection/samples/configs

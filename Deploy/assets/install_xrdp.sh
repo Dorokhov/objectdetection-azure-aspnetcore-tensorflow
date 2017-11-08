@@ -23,7 +23,7 @@ sudo apt-get -y install python-pip python-dev
 #sudo pip install tensorflow
 #GPU
 #sudo pip install libcupti-dev
-#sudo pip install tensorflow-gpu
+sudo pip install tensorflow-gpu
 
 #install dotnet core
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
