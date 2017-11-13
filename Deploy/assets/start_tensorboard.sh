@@ -1,1 +1,0 @@
-tensorboard --logdir=/home/testadmin/training/models/research

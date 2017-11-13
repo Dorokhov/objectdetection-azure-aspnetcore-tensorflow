@@ -1,0 +1,1 @@
+sudo dpkg -i libcudnn5_5.1.10-1+cuda8.0_amd64.deb

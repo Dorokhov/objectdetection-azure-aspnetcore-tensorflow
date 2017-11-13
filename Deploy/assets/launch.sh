@@ -1,5 +1,4 @@
 cd /home/testadmin/
-git clone https://github.com/leestott/Azure-GPU-Setup.git
 git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow" objectdetection
 cd ./objectdetection/
 sudo dotnet publish

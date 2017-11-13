@@ -23,18 +23,14 @@
     },
     "vmSize": {
       "type": "string",
-      "defaultValue": "Standard_NV6",
+      "defaultValue": "Standard_A1",
       "allowedValues": [
         "Standard_A1",
         "Standard_A2",
         "Standard_A3",
         "Standard_D1",
         "Standard_D3",
-        "Standard_D4",
-        "Standard_NC6",
-        "Standard_NC12",
-        "Standard_NV6",
-        "Standard_NV12"
+        "Standard_D4"
       ],
       "metadata": {
         "description": "The size of the virtual machines used when provisioning"
@@ -204,11 +200,7 @@
           "fileUris": [
             "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/install_objdetection.sh",
             "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/install_xrdp.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/prepare_training.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/launch.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/install_cuda.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/install_cudnn.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/install_driver.sh"
+            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/launch.sh"
           ],
           "commandToExecute": "bash install_objdetection.sh"
         }
