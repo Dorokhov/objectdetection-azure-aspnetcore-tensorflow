@@ -1,6 +1,7 @@
 cd /home/testadmin/
 git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow" objectdetection
 cd ./objectdetection/
+wget "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/mscoco_label_map.pbtxt"
 sudo dotnet publish
 
 cp -a ./objectdetection/bin/Debug/netcoreapp2.0/publish /home/testadmin/temp
@@ -26,7 +27,6 @@ sudo service supervisor stop
 sudo service supervisor start
 
 cd /home/testadmin
-wget "http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_2017_11_08.tar.gz"
-tar -xzvf ssd_mobilenet_v1_coco_2017_11_08.tar.gz
-cp -a ssd_mobilenet_v1_coco_2017_11_08/frozen_inference_graph.pb objectdetection/
-cp -a training/models/research/object_detection/data/pascal_label_map.pbtxt objectdetection
+wget "http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco.tar.gz"
+tar -xzvf faster_rcnn_resnet101_coco_2017_11_08.tar.gz
+cp -a faster_rcnn_resnet101_coco/frozen_inference_graph.pb objectdetection/
