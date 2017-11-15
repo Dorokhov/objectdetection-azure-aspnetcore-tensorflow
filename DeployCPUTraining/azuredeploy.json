@@ -198,10 +198,9 @@
         "autoUpgradeMinorVersion": true,
         "settings": {
           "fileUris": [
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployTraining/install_objdetection.sh",
+            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployCPUTraining/install_objdetection.sh",
             "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployCPUTraining/assets/install_xrdp.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployCPUTraining/assets/prepare_training.sh",
-            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployTraining/assets/export_variables.sh"
+            "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/DeployCPUTraining/assets/prepare_training.sh"
           ],
           "commandToExecute": "bash install_objdetection.sh"
         }
