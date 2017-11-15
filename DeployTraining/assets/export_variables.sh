@@ -9,4 +9,4 @@ export OBJECT_LABELS=pascal_label_map.pbtxt
 #export CREATE_RECORD_FILE=create_pet_tf_record.py
 export CREATE_RECORD_FILE=create_pascal_tf_record.py
 
-export CONFIG_NAME=faster_rcnn_resnet101_pets.config
+export CONFIG_NAME=ssd_mobilenet_v1_coco.config

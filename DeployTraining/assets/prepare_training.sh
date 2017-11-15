@@ -15,6 +15,21 @@ sudo unzip protoc-3.3.0-linux-x86_64.zip
 
 
 cd /home/testadmin/
+
+export TRAIN_PATH=/home/testadmin/training/models/research/train
+export MODELS_PATH=/home/testadmin/training/models/research
+export PRETRAINED_MODEL_NAME=faster_rcnn_resnet101_coco_11_06_2017
+#export MODELS_REPO=https://github.com/Dorokhov/models
+export MODELS_REPO=https://github.com/tensorflow/models
+
+#export OBJECT_LABELS=pet_label_map.pbtxt
+export OBJECT_LABELS=pascal_label_map.pbtxt
+
+#export CREATE_RECORD_FILE=create_pet_tf_record.py
+export CREATE_RECORD_FILE=create_pascal_tf_record.py
+
+export CONFIG_NAME=ssd_mobilenet_v1_coco.config
+
 mkdir training
 cd training
 git clone $MODELS_REPO
@@ -24,7 +39,6 @@ cd $MODELS_PATH
 
 
 cd object_detection/samples/configs
-sh export_variables.sh
 wget -N "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/$CONFIG_NAME"
 
 cd /home/testadmin
@@ -63,4 +77,4 @@ python3 object_detection/$CREATE_RECORD_FILE --label_map_path=object_detection/d
 python3 object_detection/$CREATE_RECORD_FILE --label_map_path=object_detection/data/$OBJECT_LABELS --data_dir=train/VOCdevkit --year=VOC2012 --set=val --output_path=train/pascal_val.record
 
 cp -a $MODELS_PATH/object_detection/data/$OBJECT_LABELS $MODELS_PATH/train
-cp -a $MODELS_PATH/object_detection/samples/configs/CONFIG_NAME $TRAIN_PATH
+cp -a $MODELS_PATH/object_detection/samples/configs/$CONFIG_NAME $TRAIN_PATH
