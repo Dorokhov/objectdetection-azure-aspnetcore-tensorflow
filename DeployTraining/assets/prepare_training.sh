@@ -56,9 +56,9 @@ mkdir train
 mkdir eval
 
 cd train
-wget "http://storage.googleapis.com/download.tensorflow.org/models/object_detection/$(PRETRAINED_MODEL_NAME).tar.gz"
-tar -xzvf $(PRETRAINED_MODEL_NAME).tar.gz
-cp -a $MODELS_PATH/train/$(PRETRAINED_MODEL_NAME)/model.ckpt.* $MODELS_PATH/train
+wget "http://storage.googleapis.com/download.tensorflow.org/models/object_detection/$PRETRAINED_MODEL_NAME.tar.gz"
+tar -xzvf $PRETRAINED_MODEL_NAME.tar.gz
+cp -a $MODELS_PATH/train/$PRETRAINED_MODEL_NAME/model.ckpt.* $MODELS_PATH/train
 
 cd $MODELS_PATH
 export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
