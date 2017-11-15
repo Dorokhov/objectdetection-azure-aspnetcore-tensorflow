@@ -31,6 +31,8 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsof
 sudo apt-get update
 sudo apt-get -y install dotnet-sdk-2.0.0
 
+sudo apt-get -y install python3-tk
+
 #install xrdp
 sudo apt-get install xrdp -y
 
