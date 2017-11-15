@@ -46,6 +46,7 @@ wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/ra
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/start_tensorboard.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/move_model.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/eval.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/export_variables.sh"
 
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/install_cuda.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/install_cudnn.sh"
