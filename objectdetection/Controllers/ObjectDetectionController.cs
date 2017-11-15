@@ -10,8 +10,8 @@ namespace objectdetection.Controllers
     [Route("api/[controller]")]
     public class ObjectDetectionController : Controller
     {
-        private const string TrainedModelFileName = "frozen_inference_graph.pb"; // "trained_model.pb";
-        private const string CatalogFileName = "pet_label_map.pbtxt"; //"labels.pbtxt";
+        private const string TrainedModelFileName = "frozen_inference_graph.pb"; 
+        private const string CatalogFileName = "pascal_label_map.pbtxt"; 
 
         private ILogger<ObjectDetectionController> _logger;
         private readonly IHostingEnvironment _hostingEnvironment;
