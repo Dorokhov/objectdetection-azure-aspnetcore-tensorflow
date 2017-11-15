@@ -18,7 +18,7 @@ cd /home/testadmin/
 
 export TRAIN_PATH=/home/testadmin/training/models/research/train
 export MODELS_PATH=/home/testadmin/training/models/research
-export PRETRAINED_MODEL_NAME=faster_rcnn_resnet101_coco_11_06_2017
+export PRETRAINED_MODEL_NAME=ssd_mobilenet_v1_coco_2017_11_08
 #export MODELS_REPO=https://github.com/Dorokhov/models
 export MODELS_REPO=https://github.com/tensorflow/models
 
