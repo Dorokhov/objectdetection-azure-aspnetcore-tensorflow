@@ -20,19 +20,15 @@ sudo easy_install3 pip
 sudo pip3 install --upgrade pip wheel setuptools
 sudo apt-get -y install python-pip python-dev
 #CPU
-#sudo pip install tensorflow
-#GPU
-#sudo pip install libcupti-dev
-sudo pip install tensorflow-gpu
+sudo pip install tensorflow
 
 #install dotnet core
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 
 sudo apt-get update
-sudo apt-get -y install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-sdk-2.0.0
 
 #install xrdp
 sudo apt-get install xrdp -y
