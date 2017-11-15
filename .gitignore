@@ -1,5 +1,6 @@
 /.vs/objectdetection/v15/sqlite3/*.ide
 
+/.vs
 bin
 obj
 test_images
