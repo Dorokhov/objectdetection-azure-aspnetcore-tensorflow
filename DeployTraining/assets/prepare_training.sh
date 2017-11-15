@@ -51,6 +51,7 @@ wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/ra
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/install_cuda.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/install_cudnn.sh"
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/install_driver.sh"
+wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/DeployTraining/assets/create_record.sh"
 
 cd $MODELS_PATH
 mkdir train
@@ -74,8 +75,6 @@ export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
 # COCO
 wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
 tar -xvf VOCtrainval_11-May-2012.tar -C train
-python3 object_detection/$CREATE_RECORD_FILE --label_map_path=object_detection/data/$OBJECT_LABELS --data_dir=train/VOCdevkit --year=VOC2012 --set=train --output_path=train/pascal_train.record
-python3 object_detection/$CREATE_RECORD_FILE --label_map_path=object_detection/data/$OBJECT_LABELS --data_dir=train/VOCdevkit --year=VOC2012 --set=val --output_path=train/pascal_val.record
 
 cp -a $MODELS_PATH/object_detection/data/$OBJECT_LABELS $MODELS_PATH/train
 cp -a $MODELS_PATH/object_detection/samples/configs/$CONFIG_NAME $TRAIN_PATH
