@@ -27,6 +27,6 @@ sudo service supervisor stop
 sudo service supervisor start
 
 cd /home/testadmin
-wget "http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco.tar.gz"
+wget "http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco_2017_11_08.tar.gz"
 tar -xzvf faster_rcnn_resnet101_coco_2017_11_08.tar.gz
 cp -a faster_rcnn_resnet101_coco/frozen_inference_graph.pb objectdetection/
