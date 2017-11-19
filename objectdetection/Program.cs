@@ -23,6 +23,19 @@ namespace objectdetection
                 .UseKestrel()
                 .UseConfiguration(config)
                 .UseContentRoot(Directory.GetCurrentDirectory())
+                .ConfigureAppConfiguration((hostingContext, c) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
+                    c.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                    c.AddEnvironmentVariables();
+                })
+                 .ConfigureLogging((hostingContext, logging) =>
+                 {
+                     logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+                     logging.AddConsole();
+                     logging.AddDebug();
+                 })
                 .UseStartup<Startup>()
                 .Build();
 
