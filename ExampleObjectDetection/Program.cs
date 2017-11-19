@@ -47,8 +47,9 @@ namespace ExampleObjectDetection
 		/// </summary>
 		/// <param name="args"></param>
 		public static void Main<T> (string [] args, ILogger<T> logger)
-		{
-			options.Parse (args);
+        {
+            logger.LogDebug("tensorflow object detection started");
+            options.Parse (args);
 
 			if (_catalogPath == null) {
 				_catalogPath = DownloadDefaultTexts (_currentDir);
@@ -58,8 +59,12 @@ namespace ExampleObjectDetection
 				_modelPath = DownloadDefaultModel (_currentDir);
 			}
 
-			_catalog = CatalogUtil.ReadCatalogItems (_catalogPath);
-			var fileTuples = new List<(string input, string output)> () { (_input, _output) };
+            logger.LogDebug("reading catalog items");
+            _catalog = CatalogUtil.ReadCatalogItems (_catalogPath);
+            logger.LogDebug("catalog items read");
+
+            logger.LogDebug("input: {0} output: {1}", _input, _output);
+            var fileTuples = new List<(string input, string output)> () { (_input, _output) };
 			string modelFile = _modelPath;
 
             logger.LogDebug("running tensorflow");

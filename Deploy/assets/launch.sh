@@ -1,7 +1,6 @@
 cd /home/testadmin/
 git clone "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow" objectdetection
 cd ./objectdetection/
-wget "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/mscoco_label_map.pbtxt"
 sudo dotnet publish
 
 cp -a ./objectdetection/bin/Debug/netcoreapp2.0/publish /home/testadmin/temp
@@ -9,6 +8,7 @@ sudo rm -r /home/testadmin/objectdetection/*
 cp -a /home/testadmin/temp/* /home/testadmin/objectdetection/
 
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/libtensorflow.so"
+wget "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/mscoco_label_map.pbtxt"
 
 sudo apt-get -y install nginx
 sudo service nginx start
