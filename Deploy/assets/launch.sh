@@ -8,7 +8,7 @@ sudo rm -r /home/testadmin/objectdetection/*
 cp -a /home/testadmin/temp/* /home/testadmin/objectdetection/
 
 wget "https://github.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/raw/master/Deploy/assets/libtensorflow.so"
-curl -O "https://raw.githubusercontent.com/Dorokhov/objectdetection-azure-aspnetcore-tensorflow/master/Deploy/assets/mscoco_label_map.pbtxt"
+curl -O "https://raw.githubusercontent.com/tensorflow/models/master/research/object_detection/data/mscoco_label_map.pbtxt"
 
 sudo apt-get -y install nginx
 sudo service nginx start
